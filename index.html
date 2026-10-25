@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle FR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>WORDLE</h1>
+    <button id="new-game" class="icon-btn" title="Nouvelle partie" aria-label="Nouvelle partie">↻</button>
+  </header>
+
+  <main>
+    <div id="message" role="status" aria-live="polite"></div>
+    <div id="board" aria-label="Grille de jeu"></div>
+    <div id="keyboard" aria-label="Clavier"></div>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-word"></p>
+      <div class="stats">
+        <div><span id="stat-played">0</span><small>Parties</small></div>
+        <div><span id="stat-winrate">0</span><small>% victoires</small></div>
+        <div><span id="stat-streak">0</span><small>Série</small></div>
+        <div><span id="stat-best">0</span><small>Meilleure série</small></div>
+      </div>
+      <button id="replay" class="primary">Rejouer</button>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
