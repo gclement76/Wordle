@@ -2,19 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#121417">
   <title>Wordle FR</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>WORDLE</h1>
+    <a class="icon-btn" href="https://gclement76.github.io/" title="Mes projets" aria-label="Retour à mes projets">‹</a>
+    <h1 class="logo" aria-label="Wordle">
+      <span>W</span><span>O</span><span>R</span><span>D</span><span>L</span><span>E</span>
+    </h1>
     <button id="new-game" class="icon-btn" title="Nouvelle partie" aria-label="Nouvelle partie">↻</button>
   </header>
 
   <main>
     <div id="message" role="status" aria-live="polite"></div>
-    <div id="board" aria-label="Grille de jeu"></div>
+    <div class="board-container">
+      <div id="board" aria-label="Grille de jeu"></div>
+    </div>
     <div id="keyboard" aria-label="Clavier"></div>
   </main>
 
