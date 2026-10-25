@@ -11,6 +11,9 @@
   --correct: #2fa66a;
   --present: #e0a526;
   --absent: #7b8794;
+  /* Touches des lettres absentes : « éteintes », bien distinctes des touches non jouées */
+  --key-absent-bg: #7b8794;
+  --key-absent-text: #ffffff;
   --accent: #e4572e;
   --radius: 10px;
 }
@@ -23,11 +26,13 @@
     --text-soft: #9aa5b1;
     --border: #323840;
     --border-filled: #616e7c;
-    --key-bg: #2c3138;
-    --key-shadow: #1a1d21;
+    --key-bg: #565e69;
+    --key-shadow: #2c3138;
     --correct: #2f9e63;
     --present: #c9921b;
-    --absent: #3a4048;
+    --absent: #4a515b;
+    --key-absent-bg: #1f2328;
+    --key-absent-text: #5c6570;
   }
 }
 
@@ -256,7 +261,10 @@ main {
 }
 .key.correct { background: var(--correct); }
 .key.present { background: var(--present); }
-.key.absent  { background: var(--absent); }
+.key.absent  {
+  background: var(--key-absent-bg);
+  color: var(--key-absent-text);
+}
 
 @media (max-height: 640px) {
   .key { height: 42px; }
