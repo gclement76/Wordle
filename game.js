@@ -68,6 +68,24 @@ function buildBoard() {
   }
 }
 
+/**
+ * Ajuste la page à la hauteur réellement visible, puis calcule la taille
+ * des tuiles pour que la grille tienne dans l'espace laissé par le clavier.
+ * Fait en JS car les unités CSS récentes (dvh, cqh) ne sont pas fiables
+ * sur tous les navigateurs mobiles.
+ */
+function fitLayout() {
+  const root = document.documentElement;
+  root.style.setProperty("--app-height", `${window.innerHeight}px`);
+
+  const container = boardEl.parentElement;
+  const gap = 6;
+  const fromWidth = (container.clientWidth - gap * (WORD_LENGTH - 1)) / WORD_LENGTH;
+  const fromHeight = (container.clientHeight - 16 - gap * (MAX_GUESSES - 1)) / MAX_GUESSES;
+  const size = Math.floor(Math.max(24, Math.min(62, fromWidth, fromHeight)));
+  root.style.setProperty("--tile", `${size}px`);
+}
+
 function buildKeyboard() {
   keyboardEl.innerHTML = "";
   for (const keys of KEYBOARD_LAYOUT) {
@@ -272,4 +290,8 @@ document.getElementById("new-game").addEventListener("click", (e) => {
   newGame();
 });
 
+window.addEventListener("resize", fitLayout);
+if (window.visualViewport) window.visualViewport.addEventListener("resize", fitLayout);
+
 newGame();
+fitLayout();
